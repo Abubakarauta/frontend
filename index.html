@@ -92,23 +92,89 @@
                 </form>
 
 
-                 <!-- Footer -->
-                 <footer class="footer mt-5">
-                    <div class="container text-center">
-                        <p>&copy; 2023 BookMyBus. All rights reserved.</p>
-                        <p>Contact us at <a href="mailto:info@bookmybus.com">info@bookmybus.com</a></p>
-                        <!-- Add social media links (replace with actual URLs) -->
-                        <div class="social-media">
-                            <a href="https://facebook.com/bookmybus" target="_blank" title="Facebook"><i class="bi bi-facebook"></i></a>
-                            <a href="https://twitter.com/bookmybus" target="_blank" title="Twitter"><i class="bi bi-twitter"></i></a>
-                            <a href="https://instagram.com/bookmybus" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
+                 
+                <form id="search-form"  class="search-form mt-3">
+                    <div class="mb-3 d-flex align-items-center">
+                        <div class="container mt-5">
+                            <h1 class="text-center">About Us</h1>
+                            <p class="text-center">Welcome to BookMyBus, your go-to platform for booking bus tickets conveniently and efficiently. We are committed to providing a seamless and hassle-free experience for your bus travel needs.</p>
+                    
+                            <h2 class="text-center">Our Mission</h2>
+                            <p class="text-center">Our mission is to make bus travel accessible and convenient for everyone. We aim to connect passengers with a wide range of bus services, offering choice and flexibility for their journeys.</p>
+                    
+                            <h2 class="text-center">Why Choose Us?</h2>
+                            <p class="text-center">At BookMyBus, we prioritize your comfort and safety. We work with reliable bus operators to ensure that you have a pleasant journey. Our user-friendly platform allows you to find and book the perfect bus for your trip with ease.</p>
+                    
+                            <h2 class="text-center">Contact Us</h2>
+                            <p class="text-center">If you have any questions, feedback, or need assistance, don't hesitate to <a href="contact.html">contact us</a>. We're here to help you.</p>
                         </div>
-                    </div>
-                </footer>
+                     
+                    <!-- </div> -->
+                </form>
 
-            <!-- </div> -->
+
+               
+ 
+
+                
+                <!-- </div> -->
+            </div>
+
+            
+            <form id="search-form"  class="search-form mt-3">
+                <div class="mb-3 d-flex align-items-center">
+                    <div class="container mt-5">
+                        <h1 class="text-center">Contact Us</h1>
+                        <p class="text-center">We are here to assist you. Please don't hesitate to reach out to us with any questions or concerns you may have. Your feedback is important to us.</p>
+                
+                        <div class="row mt-5">
+                            <div class="col-md-6">
+                                <h2>Contact Information</h2>
+                                <p><strong>Address:</strong> 123 Main Street, City, Country</p>
+                                <p><strong>Email:</strong> <a href="mailto:info@bookmybus.com">info@bookmybus.com</a></p>
+                                <p><strong>Phone:</strong> +1 (123) 456-7890</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h2>Contact Form</h2>
+                                <form action="submit_contact_form.php" method="post">
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">Your Name</label>
+                                        <input type="text" class="form-control" id="name" name="name" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Your Email</label>
+                                        <input type="email" class="form-control" id="email" name="email" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="message" class="form-label">Message</label>
+                                        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-custom">Send Message</button>
+                                </form>
+                            </div>
+                            
+                        </div>
+                          
+                
+                    </div
+                 
+                </div>
+            </form>
+
         </div>
-    </div>
+        <!-- Footer -->
+        <footer class="footer mt-5">
+           <div class="container text-center">
+               <p>&copy; 2023 BookMyBus. All rights reserved.</p>
+               <p>Contact us at <a href="mailto:info@bookmybus.com">info@bookmybus.com</a></p>
+               <!-- Add social media links (replace with actual URLs) -->
+               <div class="social-media">
+                   <a href="https://facebook.com/bookmybus" target="_blank" title="Facebook"><i class="bi bi-facebook"></i></a>
+                   <a href="https://twitter.com/bookmybus" target="_blank" title="Twitter"><i class="bi bi-twitter"></i></a>
+                   <a href="https://instagram.com/bookmybus" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
+               </div>
+           </div>
+       </footer>
 
     <!-- Include Bootstrap JavaScript (and any other scripts you may need) -->
     <script src="bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
