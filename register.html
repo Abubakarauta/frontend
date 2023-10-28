@@ -15,11 +15,13 @@
 
 <body>
 
-    <div class="container-fluid mt-3">
+    <div class="container-fluid ">
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <img src="BUS LOGO-1.png" alt="Your Logo" class="img-fluid">
-
+                <div class="logo">
+                    <img src="./BookMyBus 1.jpg" alt="Your Logo" class="img-fluid">
+                </div>
+    
                 <form id="registration-form" action="api/user/register/" method="POST" class="search-form">
                     <input type="hidden" name="csrfmiddlewaretoken" value="{% csrf_token %}">
 
@@ -28,7 +30,7 @@
                     <div class="mb-3">
                         <label for="first-name" class="form-label">First Name</label>
                         <div class="input-group">
-                            <span class="input-group-text">
+                            <span class="input-group-text btn-custom">
                                 <i class="bi bi-person"></i> <!-- Person icon -->
                             </span>
                             <input type="text" class="form-control" id="first-name" name="first_name" required>
@@ -37,7 +39,7 @@
                     <div class="mb-3">
                         <label for="last-name" class="form-label">Last Name</label>
                         <div class="input-group">
-                            <span class="input-group-text">
+                            <span class="input-group-text btn-custom">
                                 <i class="bi bi-person"></i> <!-- Person icon -->
                             </span>
                             <input type="text" class="form-control" id="last-name" name="last_name" required>
@@ -46,7 +48,7 @@
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <div class="input-group">
-                            <span class="input-group-text">
+                            <span class="input-group-text btn-custom">
                                 <i class="bi bi-envelope"></i> <!-- Envelope icon -->
                             </span>
                             <input type="email" class="form-control" id="email" name="email" required>
@@ -55,7 +57,7 @@
                     <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
                         <div class="input-group">
-                            <span class="input-group-text">
+                            <span class="input-group-text btn-custom">
                                 <i class="bi bi-person-badge"></i> <!-- Person Badge icon -->
                             </span>
                             <input type="text" class="form-control" id="username" name="username" required>
@@ -64,7 +66,7 @@
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
                         <div class="input-group">
-                            <span class="input-group-text">
+                            <span class="input-group-text btn-custom">
                                 <i class="bi bi-lock"></i> <!-- Lock icon -->
                             </span>
                             <input type="password" class="form-control" id="password" name="password" required>
@@ -74,6 +76,19 @@
                 </form>
 
             </div>
+               <!-- Footer -->
+               <footer class="footer mt-5">
+                <div class="container text-center">
+                    <p>&copy; 2023 BookMyBus. All rights reserved.</p>
+                    <p>Contact us at <a href="mailto:info@bookmybus.com">info@bookmybus.com</a></p>
+                    <!-- Add social media links (replace with actual URLs) -->
+                    <div class="social-media">
+                        <a href="https://facebook.com/bookmybus" target="_blank" title="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="https://twitter.com/bookmybus" target="_blank" title="Twitter"><i class="bi bi-twitter"></i></a>
+                        <a href="https://instagram.com/bookmybus" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+            </footer>
         </div>
     </div>
 

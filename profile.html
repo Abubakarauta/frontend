@@ -10,36 +10,46 @@
 </head>
 <body>
 
-<div class="container-fluid mt-3">
+<div class="container-fluid ">
     <div class="row">
-        <div class="col-md-6 offset-md-3">
             <!-- Navigation Bar -->
-            <nav class="navbar navbar-expand-lg navbar-light navi" >
+            <nav class="navbar navbar-expand-lg navbar-light navi">
                 <div class="container">
-                    <a class="navbar-brand text-white" href="index.html">BookMyBus</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <a class="navbar-brand text-white me-auto" href="index.html">BookMyBus</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                        aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ml-auto">
-                            
-                        
+                        <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="bus_booking.html">Booking</a>
+                                <a class="nav-link text-white" href="index.html">Home</a>
                             </li>
+                           
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="booking_history.html">History</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="profile.html">profile</a>
+                                <a class="nav-link text-white" href="about.html">About</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="logout.html">Logout</a>
+                                <a class ="nav-link text-white" href="contact.html">Contact Us</a>
+                            </li>
+                            <!-- Remove the "Booking" option -->
+                            <!-- <li class="nav-item">
+                                <a class="nav-link text-white" href="bus_booking.html">Booking</a>
+                            </li> -->
+                            
+                            <li class="nav-item">
+                                <a class="nav-link text-white" id="logout" href="#" onclick="logoutUser()">Logout</a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
+            <div class="col-md-6 offset-md-3">
+
             <!-- Page Header -->
             <h1 class="">User Profile</h1>
         <div class="search-form">

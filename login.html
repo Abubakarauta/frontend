@@ -15,24 +15,26 @@
 </head>
 <body>
 
-<div class="container-fluid mt-3">
+<div class="container ">
     <div class="row">
-        <div class="col-md-6 offset-md-3">
+                    <div class="col-md-7 offset-md-3">
+
             <div class="logo">
                 <img src="./BookMyBus 1.jpg" alt="Your Logo" class="img-fluid">
             </div>
+
             <form id="login-form" action="api/user/token/login/" method="POST" class="login-form search-form">
                 <h1 class="login-heading">User Login</h1>
                 <!-- Email input with icon -->
                 <div class="input-group mb-3">
-                    <span class="input-group-text login-icon">
+                    <span class="input-group-text login-icon btn-custom">
                         <i class="bi bi-envelope"></i> <!-- Bootstrap email icon -->
                     </span>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
                 </div>
                 <!-- Password input with icon -->
                 <div class="input-group mb-3">
-                    <span class="input-group-text login-icon">
+                    <span class="input-group-text login-icon btn-custom">
                         <i class="bi bi-lock"></i> <!-- Bootstrap lock icon -->
                     </span>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
