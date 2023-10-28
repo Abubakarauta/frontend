@@ -10,34 +10,41 @@
 </head>
 
 <body>
-    <div class="container-fluid mt-3">
+    <div class="container-fluid ">
         <div class="row">
-            <div class="col-md-6 offset-md-3">
+            <!-- <div class="col-md-6 offset-md-3"> -->
                 <!-- Main Content -->
                 <!-- Navigation Bar -->
                 <nav class="navbar navbar-expand-lg navbar-light navi">
                     <div class="container">
-                        <a class="navbar-brand text-white" href="index.html">BookMyBus</a>
+                        <a class="navbar-brand text-white me-auto" href="index.html">BookMyBus</a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                             aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav ml-auto">
-
-
+                            <ul class="navbar-nav ms-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" href="bus_booking.html">Booking</a>
+                                    <a class="nav-link text-white" href="profile.html">Profile</a>
                                 </li>
+                               
                                 <li class="nav-item">
                                     <a class="nav-link text-white" href="booking_history.html">History</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" href="profile.html">profile</a>
+                                    <a class="nav-link text-white" href="about.html">About</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" href="logout.html">Logout</a>
+                                    <a class ="nav-link text-white" href="contact.html">Contact Us</a>
+                                </li>
+                                <!-- Remove the "Booking" option -->
+                                <!-- <li class="nav-item">
+                                    <a class="nav-link text-white" href="bus_booking.html">Booking</a>
+                                </li> -->
+                                
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" id="logout" href="#" onclick="logoutUser()">Logout</a>
                                 </li>
                             </ul>
                         </div>
@@ -46,13 +53,27 @@
                 <!-- Booking History Content -->
                 <h1>Booking History</h1>
                 <!-- Display User's Bookings -->
-                <div class="mb-3 search-form">
+                <div id="bus-details"    class="mb-3 search-form">
                     <h3>Past Bookings</h3>
                     <ul id="past-bookings">
                     </ul>
                 </div>
 
-            </div>
+            <!-- </div> -->
+
+             <!-- Footer -->
+  <footer class="footer mt-5">
+    <div class="container text-center">
+        <p>&copy; 2023 BookMyBus. All rights reserved.</p>
+        <p>Contact us at <a href="mailto:info@bookmybus.com">info@bookmybus.com</a></p>
+        <!-- Add social media links (replace with actual URLs) -->
+        <div class="social-media">
+            <a href="https://facebook.com/bookmybus" target="_blank" title="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://twitter.com/bookmybus" target="_blank" title="Twitter"><i class="bi bi-twitter"></i></a>
+            <a href="https://instagram.com/bookmybus" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
+        </div>
+    </div>
+</footer>
         </div>
     </div>
     <script src="bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
