@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <!-- Navigation Bar -->
+            <nav class="navbar navbar-expand-lg navbar-light navi" >
+                <div class="container">
+                    <a class="navbar-brand text-white" href="index.html">BookMyBus</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ml-auto">
+                            
+                        
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="bus_booking.html">Booking</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="booking_history.html">History</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="profile.html">profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="logout.html">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Page Header -->
+            <h1 class="">User Profile</h1>
+        <div class="search-form">
+                        <!-- User Information -->
+                    <div class="mb-3">
+                        <label for="first-name" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="first-name" value="John" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="last-name" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="last-name" value="Doe" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" value="john.doe@example.com" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" value="johndoe" readonly>
+                    </div>
+
+                    <button class="btn btn-custom" id="update-profile">Update Profile</button>
+
+         </div>
+            
+        </div>
+    </div>
+</div>
+
+<!-- Include Bootstrap JavaScript (and any other scripts you may need) -->
+<script src="bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
+
+<!-- <script>
+    // Fetch the user's profile data from your API endpoint
+    try {
+            let res = await fetch('http://localhost:8000/api/user/profile/', {
+                method: 'GET', body: JSON.stringify(data),
+                headers: { 'Content-Type': 'application/json' }
+            });
+            res = await res.json();
+
+        } catch (error) {
+            console.error(error);
+        }
+    //     .then(response => response.json())
+    //     .then(userProfile => {
+    //         // Populate the form fields with the user's profile data
+    //         document.getElementById('first-name').value = userProfile.first_name;
+    //         document.getElementById('last-name').value = userProfile.last_name;
+    //         document.getElementById('email').value = userProfile.email;
+    //         document.getElementById('username').value = userProfile.username;
+    //     })
+    //     .catch(error => {
+    //         console.error('Error fetching user profile:', error);
+    //     });
+
+    // // // Add an event listener for the "Update Profile" button if you want to implement that functionality.
+    // // document.getElementById('update-profile').addEventListener('click', () => {
+    // //     // Add code to handle profile updates.
+    // //     // This could involve opening a new form or redirecting to an update page.
+    // });
+</script> -->
+
+<script>
+    async function fetchUserProfile() {
+        let token = localStorage.getItem('token');
+        try {
+            let response = await fetch('http://localhost:8000/api/user/profile/', {
+                method: 'GET', 
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+            });
+            if (response.ok) {
+                const userProfile = await response.json();
+                // Populate the form fields with the user's profile data
+                document.getElementById('first-name').value = userProfile.first_name;
+                document.getElementById('last-name').value = userProfile.last_name;
+                document.getElementById('email').value = userProfile.email;
+                document.getElementById('username').value = userProfile.username;
+            } else {
+                console.error('Failed to fetch user profile:', response.status);
+            }
+        } catch (error) {
+            console.error('Error fetching user profile:', error);
+        }
+    }
+
+    // Call the function to fetch and populate the user's profile
+    fetchUserProfile();
+</script>
+
+
+
+
+</body>
+</html>

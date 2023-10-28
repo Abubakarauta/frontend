@@ -1,0 +1,79 @@
+.logo {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.home-heading {
+    text-align: center;
+    color: orange;
+    margin-top: 20px;
+}
+
+
+
+
+/* Define the primary and accent colors */
+:root {
+    --primary-color: teal;
+    --accent-color: orange;
+}
+.navi{
+    background-color: var(--primary-color); 
+    border-radius: 10px; padding: 10px 0;
+}
+
+/* Page header styling */
+.page-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px;
+}
+
+/* Search form styling */
+.search-form {
+
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Search button styling */
+
+
+h1 {
+    font-family:  sans-serif;
+    text-align: center;
+    color: #333; /* Change to your preferred text color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-size: 2rem; /* Adjust the font size as needed */
+    background-color: #fff; /* Change to your preferred background color */
+    padding: 10px; /* Add padding for better spacing */
+    border-radius: 10px;
+}
+.btn-custom  {
+    background-color: var(--primary-color); /* Use the desired background color */
+    border-radius: 5px; /* Adjust the border radius as needed */
+    color: #fff; /* Text color (white in this example) */
+    padding: 10px 20px;
+    text-align: center;
+
+}/* Add padding to the input fields */
+.form-control {
+    padding: 20px; /* Adjust the padding size as needed */
+    border-radius: 10px;
+}
+.form-btn{
+    background-color: var(--primary-color);
+    color: white;
+}
+#logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px; /* Adjust the height as needed */
+}
+
+.centered-logo {
+    max-width: 100%; /* Make sure the logo doesn't exceed the container's width */
+}

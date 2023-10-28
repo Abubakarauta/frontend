@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment & Confirm</title>
+    <link href="bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <!-- Main Content -->
+
+
+                <!-- Review & Confirm Content -->
+
+                <!-- <h1 style="text-align: center;">Payment & Confirm</h1> -->
+                <!-- Display Booking Details -->
+                <!-- Display booking details here (e.g., bus, route, seat, passenger name, etc.) -->
+                <!-- <div class="mb-3 search-form">
+                                        <h3>Booking Details</h3>
+
+                       
+                         <form action="#" method="post" id="booking-detail" >
+                            
+                            <div class="mb-3">
+                                <label for="bus-name" class="form-label"> Bus Name</label>
+                                <input type="text" class="form-control" id="bus-name" value="bus Number" name="bus_name" readonly>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="route-name" class="form-label"> Bus Route</label>
+                                <input type="text" class="form-control" id="route-name" value="route1" name="route_name" readonly>
+
+                            </div>
+                            <div class="mb-3">
+                                <label for="seat-number" class="form-label"> Seat Number</label>
+                                <input type="text" class="form-control" id="seat-number" value="seat" name="seat-number" readonly>
+
+                            </div>
+                            <div class="mb-3">
+                                <label for="departure-time" class="form-label"> departure time</label>
+                                <input type="text" class="form-control" id="departure-time" value="route1" name="departure-time" readonly>
+
+                            </div>
+                            <div class="mb-3">
+                                <label for="passenger-name" class="form-label"> passenger-name</label>
+                                <input type="text" class="form-control" id="passenger-name" value="passenger" name="passenger-name" readonly>
+
+                            </div>
+                            <div class="mb-3">
+                                <label for="price" class="form-label"> Bus price</label>
+                                <input type="text" class="form-control" id="price" value="route1" name="price" readonly>
+
+                            </div>
+                            <div class="form-control  btn-custom">
+                                <button type="submit" class="btn-custom btn" id="confirm-booking">confirm booking</button>
+                            </div>
+                           
+
+                          
+                        </form>
+
+                       </div> -->
+                <!-- Payment Information Form -->
+                <!-- <form action="#" method="post" class="search-form">
+                        <h3>Payment Information</h3>
+                        <div class="mb-3">
+                            <label for="card-number" class="form-label">Card Number</label>
+                            <input type="text" class="form-control" id="card-number" name="card_number" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="card-holder" class="form-label">Card Holder</label>
+                            <input type="text" class="form-control" id="card-holder" name="card_holder" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="expiration-date" class="form-label">Expiration Date</label>
+                            <input type="text" class="form-control" id="expiration-date" name="expiration_date" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cvv" class="form-label">CVV</label>
+                            <input type="text" class="form-control" id="cvv" name="cvv" required>
+                        </div >
+                        
+                        <div class=" text-center mt-3">
+                          
+                          <a href="booking_confirmation.html" class="btn btn-custom ">Pay for Booking </a>
+                            
+                        </div>
+                        
+                    </form> -->
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+    <script src="bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+
+
+
+
+    <script>
+        // Get the query parameters from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        // Extract bus information from the URL
+        const price = urlParams.get('price');
+        const bookingId = urlParams.get('booking_id'); // Get the 'id' parameter from the URL
+
+        let token = localStorage.getItem('token');
+
+        async function fetchUserProfile() {
+            try {
+                let response = await fetch('http://localhost:8000/api/user/profile/', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json',
+                    },
+                });
+                return await response.json()
+            } catch (error) {
+                return null;
+                console.error('Error fetching user profile:', error);
+            }
+        }
+
+
+        async function Bookingconfirm() {
+    try {
+        // Make a GET request to fetch booking details after successful payment
+        let response = await fetch(`http://localhost:8000/api/booking/bookings/${bookingId}/confirm/`, {
+            method: 'PATCH',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (response.status === 200) {
+            // Handle the response, e.g., display booking details to the user
+            // const bookingDetails = await response.json();
+            window.location.replace('./booking_history.html');
+
+            // Update your HTML to display the booking details or perform any other actions.
+        } else {
+            // Handle the case where the GET request did not return a success status
+            console.error('Failed to fetch booking details');
+        }
+    } catch (error) {
+        // Handle any network errors here
+        console.error('Network error:', error);
+    }
+}
+
+async function payWithPaystack() {
+    let user = await fetchUserProfile();
+
+    if (user) {
+        let handler = PaystackPop.setup({
+            key: 'pk_test_ffddc3db543f5aab4190547ab8c9c705cda67531',
+            email: user.email,
+            amount: parseInt(price) * 100,
+            ref: '' + Math.floor((Math.random() * 1000000000) + 1),
+            onClose: function () {
+                alert('Window closed.');
+                window.location.replace('./bus_booking.html');
+            },
+            callback: function (response) {
+                let message = 'Payment complete! Reference: ' + response.reference;
+                alert(message);
+                // After successful payment, fetch and display booking details
+                Bookingconfirm();
+            }
+        });
+
+        handler.openIframe();
+    }
+}
+
+        
+        payWithPaystack()
+    </script>
+
+
+</body>
+
+</html>
