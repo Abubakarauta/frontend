@@ -5,16 +5,20 @@
 
 .home-heading {
     text-align: center;
-    color: orange;
+    color: #00224a;
     margin-top: 20px;
 }
 
-
+.navbar-toggler {
+    /* color: white; */
+    background-color: #ffff;
+}
 
 
 /* Define the primary and accent colors */
 :root {
-    --primary-color: teal;
+    --primary-color: #00224a;
+    /* --primary-color: #18a0de; */
     --accent-color: orange;
 }
 .navi{
@@ -44,7 +48,7 @@
 h1 {
     font-family:  sans-serif;
     text-align: center;
-    color: #333; /* Change to your preferred text color */
+    color: #00224a; /* Change to your preferred text color */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     font-size: 2rem; /* Adjust the font size as needed */
     background-color: #fff; /* Change to your preferred background color */
