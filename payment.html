@@ -113,8 +113,14 @@
         // Extract bus information from the URL
         const price = urlParams.get('price');
         const bookingId = urlParams.get('booking_id'); // Get the 'id' parameter from the URL
+        const busName = urlParams.get('bus-name');
+        const route = urlParams.get('route');
+        const departureTime = urlParams.get('departureTime');
+        const seatNumber = urlParams.get('seatNumber')
+        const busId = urlParams.get('id'); // Get the 'id' parameter from the URL
 
         let token = localStorage.getItem('token');
+
 
         async function fetchUserProfile() {
             try {
@@ -133,7 +139,7 @@
         }
 
 
-        async function Bookingconfirm() {
+    async function Bookingconfirm() {
     try {
         // Make a GET request to fetch booking details after successful payment
         let response = await fetch(`http://localhost:8000/api/booking/bookings/${bookingId}/confirm/`, {
@@ -147,7 +153,16 @@
         if (response.status === 200) {
             // Handle the response, e.g., display booking details to the user
             // const bookingDetails = await response.json();
-            window.location.replace('./booking_history.html');
+            console.log('Booking confirmation successful');
+
+             // Build the payment URL with parameters
+
+
+             // Build the payment URL with parameters
+            const history = `booking_history.html?id=${busId}&bus-name=${busName}&route=${route}&departureTime=${departureTime}&price=${price}&booking_id=${bookingId}&seatNumber=${seatNumber}`;
+            // // Redirect to the history page
+            window.location.href = history;
+            //  window.location.replace('booking_history.html');
 
             // Update your HTML to display the booking details or perform any other actions.
         } else {

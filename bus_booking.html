@@ -196,7 +196,9 @@
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
+                
                 body: JSON.stringify(bookingData),
+                
             })
                 .then(response => response.json())
                 .then(validateAndSubmit)
@@ -204,6 +206,7 @@
                     console.error('Error creating booking:', error);
                     // Handle the error, e.g., display an error message to the user
                 });
+
         }
 
         // Add an event listener to the form for form submission
