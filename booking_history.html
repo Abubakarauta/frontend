@@ -152,54 +152,6 @@
     }
 
 
-// pdf reciept with library
-
-// function printReceipt(id) {
-//     // Disable the button to prevent multiple clicks
-//     const printButton = document.getElementById('print-button');
-//     printButton.disabled = true;
-
-//     // Fetch booking details for the given bookingId
-//     let token = localStorage.getItem('token');
-//     fetch(`http://localhost:8000/api/booking/bookings/${id}`, {
-//         method: 'GET',
-//         headers: {
-//             'Authorization': `Bearer ${token}`,
-//             'Content-Type': 'application/json',
-//         }
-//     })
-//     .then(response => {
-//         if (!response.ok) {
-//             throw new Error(`HTTP error! Status: ${response.status}`);
-//         }
-//         return response.json();
-//     })
-//     .then(bookingData => {
-//         console.log('Booking Details:', bookingData);
-
-//         // Construct the content for the PDF
-//         const content = `message: ${bookingData.message} \n\nReceipt for: ${bookingData.username} \nBooking Id: ${bookingData.data.id} \nBus: ${bookingData.data.bus} \nRoute: ${bookingData.data.route}\nStatus: ${bookingData.data.status}\nDate: ${new Date(bookingData.data.created_at).toLocaleString()}`;
-
-//         // Create a new jsPDF instance
-//         const pdf = new jsPDF();
-
-//         // Add the content to the PDF
-//         pdf.text(content, 10, 10);
-
-//         // Save the PDF with a specific name
-//         pdf.save('receipt.pdf');
-//     })
-//     .catch(error => {
-//         // Handle errors gracefully, e.g., display a user-friendly message or log to the console
-//         console.error('Failed to fetch booking details:', error);
-//     })
-//     .finally(() => {
-//         // Re-enable the button after fetching is complete (success or error)
-//         printButton.disabled = false;
-//     });
-// }
-
-
 
     // pdf reciept without library
     function printReceipt(id) {
@@ -261,6 +213,60 @@
         printButton.disabled = false;
     });
 }
+
+
+
+
+
+
+
+// pdf reciept with library
+
+// function printReceipt(id) {
+//     // Disable the button to prevent multiple clicks
+//     const printButton = document.getElementById('print-button');
+//     printButton.disabled = true;
+
+//     // Fetch booking details for the given bookingId
+//     let token = localStorage.getItem('token');
+//     fetch(`http://localhost:8000/api/booking/bookings/${id}`, {
+//         method: 'GET',
+//         headers: {
+//             'Authorization': `Bearer ${token}`,
+//             'Content-Type': 'application/json',
+//         }
+//     })
+//     .then(response => {
+//         if (!response.ok) {
+//             throw new Error(`HTTP error! Status: ${response.status}`);
+//         }
+//         return response.json();
+//     })
+//     .then(bookingData => {
+//         console.log('Booking Details:', bookingData);
+
+//         // Construct the content for the PDF
+//         const content = `message: ${bookingData.message} \n\nReceipt for: ${bookingData.username} \nBooking Id: ${bookingData.data.id} \nBus: ${bookingData.data.bus} \nRoute: ${bookingData.data.route}\nStatus: ${bookingData.data.status}\nDate: ${new Date(bookingData.data.created_at).toLocaleString()}`;
+
+//         // Create a new jsPDF instance
+//         const pdf = new jsPDF();
+
+//         // Add the content to the PDF
+//         pdf.text(content, 10, 10);
+
+//         // Save the PDF with a specific name
+//         pdf.save('receipt.pdf');
+//     })
+//     .catch(error => {
+//         // Handle errors gracefully, e.g., display a user-friendly message or log to the console
+//         console.error('Failed to fetch booking details:', error);
+//     })
+//     .finally(() => {
+//         // Re-enable the button after fetching is complete (success or error)
+//         printButton.disabled = false;
+//     });
+// }
+
 
 
 
